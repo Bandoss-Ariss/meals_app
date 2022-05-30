@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:meals_app/categories_meals_screen.dart';
+import 'package:meals_app/screens/categories_meals_screen.dart';
+import 'package:meals_app/screens/meal_screen_details.dart';
 
-import './categories_screen.dart';
+import 'screens/categories_screen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -24,7 +25,10 @@ void main() {
       //       ),
       //     )
     ),
-    home: CategoriesScreen(),
-    routes: {"/category-meals": (ctx) => CategoryMealsScreen()},
+    routes: {
+      "/": (ctx) => CategoriesScreen(),
+      CategoryMealsScreen.categoryMeal: (ctx) => CategoryMealsScreen(),
+      MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+    },
   ));
 }
