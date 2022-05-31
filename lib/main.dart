@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_meals_screen.dart';
 import 'package:meals_app/screens/meal_screen_details.dart';
+import 'package:meals_app/screens/tabs_screen.dart';
 
 import 'screens/categories_screen.dart';
 
@@ -26,7 +27,7 @@ void main() {
       //     )
     ),
     routes: {
-      "/": (ctx) => CategoriesScreen(),
+      "/": (ctx) => TabsScreen(),
       CategoryMealsScreen.categoryMeal: (ctx) => CategoryMealsScreen(),
       MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
     },
