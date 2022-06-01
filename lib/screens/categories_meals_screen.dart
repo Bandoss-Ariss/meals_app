@@ -8,6 +8,10 @@ import '../dummy_data.dart';
 class CategoryMealsScreen extends StatefulWidget {
   static const categoryMeal = "/category-meals";
 
+  final List availableMeals;
+
+  CategoryMealsScreen(this.availableMeals);
+
   @override
   State<CategoryMealsScreen> createState() => _CategoryMealsScreenState();
 }
@@ -29,7 +33,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       CategoryTitle = routeArgs["title"]!;
       final CategoryId = routeArgs["id"]!;
       //on veut seulement récupérer les éléments de telle catégorie
-      displayedMeals = DUMMY_MEALS.where((meal) {
+      displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(CategoryId);
       }).toList();
       _loadedInitData = true;
@@ -62,7 +66,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
               complexity: displayedMeals[index].complexity,
               affordability: displayedMeals[index].affordability,
               id: displayedMeals[index].id,
-              removeItem: _removeMeal,
             );
           },
           itemCount: displayedMeals.length,
